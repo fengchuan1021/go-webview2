@@ -2,11 +2,10 @@ package webviewloader
 
 import (
 	"fmt"
+	"github.com/jchv/go-winloader"
+	"golang.org/x/sys/windows"
 	"sync"
 	"unsafe"
-
-	"github.com/fengchuan1021/go-winloader"
-	"golang.org/x/sys/windows"
 )
 
 var (
