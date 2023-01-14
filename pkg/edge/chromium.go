@@ -31,7 +31,6 @@ type Chromium struct {
 	environment *ICoreWebView2Environment
 
 	// Settings
-	Debug    bool
 	DataPath string
 
 	// permissions
@@ -118,6 +117,13 @@ func (e *Chromium) Navigate(url string) {
 	_, _, _ = e.webview.vtbl.Navigate.Call(
 		uintptr(unsafe.Pointer(e.webview)),
 		uintptr(unsafe.Pointer(windows.StringToUTF16Ptr(url))),
+	)
+}
+
+func (e *Chromium) NavigateToString(htmlContent string) {
+	_, _, _ = e.webview.vtbl.NavigateToString.Call(
+		uintptr(unsafe.Pointer(e.webview)),
+		uintptr(unsafe.Pointer(windows.StringToUTF16Ptr(htmlContent))),
 	)
 }
 

@@ -33,6 +33,7 @@ var (
 	User32DefWindowProcW     = user32.NewProc("DefWindowProcW")
 	User32GetClientRect      = user32.NewProc("GetClientRect")
 	User32PostQuitMessage    = user32.NewProc("PostQuitMessage")
+	User32PostMessageW       = user32.NewProc("PostMessageW")
 	User32SetWindowTextW     = user32.NewProc("SetWindowTextW")
 	User32PostThreadMessageW = user32.NewProc("PostThreadMessageW")
 	User32GetWindowLongPtrW  = user32.NewProc("GetWindowLongPtrW")
@@ -41,6 +42,27 @@ var (
 	User32SetWindowPos       = user32.NewProc("SetWindowPos")
 	User32IsDialogMessage    = user32.NewProc("IsDialogMessage")
 	User32GetAncestor        = user32.NewProc("GetAncestor")
+)
+
+const (
+	SM_CXSCREEN = 0
+	SM_CYSCREEN = 1
+)
+
+const (
+	CW_USEDEFAULT = 0x80000000
+)
+
+const (
+	LR_DEFAULTCOLOR     = 0x0000
+	LR_MONOCHROME       = 0x0001
+	LR_LOADFROMFILE     = 0x0010
+	LR_LOADTRANSPARENT  = 0x0020
+	LR_DEFAULTSIZE      = 0x0040
+	LR_VGACOLOR         = 0x0080
+	LR_LOADMAP3DCOLORS  = 0x1000
+	LR_CREATEDIBSECTION = 0x2000
+	LR_SHARED           = 0x8000
 )
 
 const (
@@ -84,7 +106,7 @@ const (
 
 const (
 	WSOverlapped       = 0x00000000
-	WSMaximizeBox      = 0x00020000
+	WSMaximizeBox      = 0x00010000
 	WSThickFrame       = 0x00040000
 	WSCaption          = 0x00C00000
 	WSSysMenu          = 0x00080000
